@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --rose: #e491a6;
+  --plum: #845763;
+  --mint: #92e4ba;
+  --leaf: #90c67f;
+  --bg: #f7f1f4;
+  --ink: #2d1f27;
+  --card: rgba(255, 255, 255, 0.92);
+  --line: rgba(132, 87, 99, 0.28);
+}
+
+body {
+  margin: 0;
+  font-family: "Sora", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.glass-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 26px rgba(132, 87, 99, 0.12);
+}
+
+.section-title {
+  letter-spacing: -0.02em;
+}
+
+.float-in {
+  animation: floatIn 420ms ease-out;
+}
+
+.bg-white,
+.bg-white\/70,
+.bg-slate-50,
+.bg-slate-100,
+.bg-slate-100\/80 {
+  background-color: #ffffff !important;
+}
+
+.border-slate-200,
+.border-slate-200\/60,
+.border-slate-200\/80,
+.border-slate-300 {
+  border-color: rgba(132, 87, 99, 0.22) !important;
+}
+
+.text-slate-500 {
+  color: #7a6570 !important;
+}
+
+.text-slate-600 {
+  color: #634e58 !important;
+}
+
+.text-slate-700,
+.text-slate-800 {
+  color: #33222a !important;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

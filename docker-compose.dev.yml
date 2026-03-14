@@ -1,0 +1,50 @@
+# This Compose file is for local development infrastructure.
+# PostgreSQL, Redis, and the backend API run in Docker.
+# The frontend app still runs on your machine with npm/Vite.
+
+services:
+  # PostgreSQL service: stores application data (services, pings, incidents).
+  postgres:
+    image: postgres:15-alpine
+    container_name: hm_postgres
+    environment:
+      POSTGRES_DB: health_monitor
+      POSTGRES_USER: monitor_user
+      POSTGRES_PASSWORD: monitor_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  # Redis service: in-memory cache/message broker.
+  redis:
+    image: redis:7-alpine
+    container_name: hm_redis
+    ports:
+      - "6379:6379"
+
+  # Backend API service: runs the Express app in a dev container.
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: hm_api
+    env_file:
+      - ./backend/.env
+    environment:
+      DATABASE_URL: postgresql://monitor_user:monitor_pass@postgres:5432/health_monitor
+      REDIS_URL: redis://redis:6379
+      PORT: 3000
+      FRONTEND_ORIGIN: http://localhost:5173
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+      - backend_node_modules:/app/node_modules
+
+volumes:
+  pg_data:
+  backend_node_modules:
