@@ -16,7 +16,7 @@ function App() {
               Ops Console
             </p>
             <h1 className="section-title text-lg font-semibold text-white">
-              Deployment Health Monitor
+              StatusPulse
             </h1>
           </div>
 

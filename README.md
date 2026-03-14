@@ -1,6 +1,6 @@
-# Deployment Health Monitor
+# StatusPulse
 
-Deployment Health Monitor is a full-stack monitoring dashboard for tracking service uptime, response time, and incident history. It periodically checks registered services, stores health results in PostgreSQL, uses Redis for current-status caching and incident counters, and presents the data in a React dashboard.
+StatusPulse is a full-stack monitoring dashboard for tracking service uptime, response time, and incident history. It periodically checks registered services, stores health results in PostgreSQL, uses Redis for current-status caching and incident counters, and presents the data in a React dashboard.
 
 ## Features
 
@@ -45,39 +45,21 @@ PostgreSQL           Redis
 
 ## Screenshots
 
-Add your screenshots later and replace the placeholder paths below.
-
 ### Dashboard Page
 
-Suggested screenshot: main dashboard showing service cards, uptime, and response time summaries.
-
-```md
 ![Dashboard Page](./docs/screenshots/dashboard-page.png)
-```
 
 ### Service Detail Page
 
-Suggested screenshot: service detail view showing status badge, charts, ping history, and incident history.
-
-```md
 ![Service Detail Page](./docs/screenshots/service-detail-page.png)
-```
 
 ### Incidents Page
 
-Suggested screenshot: incidents page showing ongoing/resolved incidents and filter buttons.
-
-```md
 ![Incidents Page](./docs/screenshots/incidents-page.png)
-```
 
 ### Add/Edit Service Modal
 
-Suggested screenshot: modal used to add or edit a monitored service.
-
-```md
 ![Add or Edit Service Modal](./docs/screenshots/add-edit-service-modal.png)
-```
 
 ## API Summary
 
